@@ -147,3 +147,85 @@ export async function fetchBackendStats(): Promise<BackendStats | null> {
     return null
   }
 }
+
+export interface WaitlistApplicant {
+  id: string
+  name: string
+  email: string
+  interests: string[]
+  createdAt: string
+}
+
+export interface NewsletterSubscriberItem {
+  id: string
+  email: string
+  firstName?: string | null
+  favouriteClub?: string | null
+  subscribedAt: string
+}
+
+export interface HealthStatus {
+  status: string
+  channel: string
+  groqConfigured: boolean
+  groqModel: string
+}
+
+export async function fetchHealth(): Promise<HealthStatus | null> {
+  try {
+    const res = await fetch(`${API_BASE}/api/health`)
+    if (!res.ok) return null
+    return await res.json()
+  } catch {
+    return null
+  }
+}
+
+export async function fetchWaitlist(): Promise<WaitlistApplicant[]> {
+  try {
+    const res = await fetch(`${API_BASE}/api/waitlist`)
+    if (!res.ok) return []
+    const data = await res.json()
+    return data.waitlist || []
+  } catch {
+    return []
+  }
+}
+
+export async function deleteWaitlistApplicant(id: string): Promise<boolean> {
+  try {
+    const res = await fetch(`${API_BASE}/api/waitlist/${id}`, { method: "DELETE" })
+    return res.ok
+  } catch {
+    return false
+  }
+}
+
+export async function fetchNewsletterSubscribers(): Promise<NewsletterSubscriberItem[]> {
+  try {
+    const res = await fetch(`${API_BASE}/api/newsletter`)
+    if (!res.ok) return []
+    const data = await res.json()
+    return data.subscribers || []
+  } catch {
+    return []
+  }
+}
+
+export async function deleteNewsletterSubscriber(id: string): Promise<boolean> {
+  try {
+    const res = await fetch(`${API_BASE}/api/newsletter/${id}`, { method: "DELETE" })
+    return res.ok
+  } catch {
+    return false
+  }
+}
+
+export async function deleteNewsArticle(id: string): Promise<boolean> {
+  try {
+    const res = await fetch(`${API_BASE}/api/news/${id}`, { method: "DELETE" })
+    return res.ok
+  } catch {
+    return false
+  }
+}

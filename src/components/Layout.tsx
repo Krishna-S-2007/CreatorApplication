@@ -66,7 +66,12 @@ export default function Layout() {
       <footer className="mx-auto mt-24 flex max-w-7xl flex-col items-start justify-between gap-6 border-t border-white/10 px-6 py-10 text-sm text-white/60 sm:flex-row sm:items-center">
         <span className="font-display font-black uppercase text-white">WheatyBisksGaming</span>
         <span>Five friends. One squad.</span>
-        <span>&copy; 2026</span>
+        <div className="flex items-center gap-4 text-xs">
+          <Link to="/admin" className="text-white/40 hover:text-lime transition">
+            Admin Dashboard
+          </Link>
+          <span>&copy; 2026</span>
+        </div>
       </footer>
       <ScrollRestoration />
     </div>

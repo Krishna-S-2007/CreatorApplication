@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Newsletter from "./pages/Newsletter"
 import Waitlist from "./pages/Waitlist"
 import News from "./pages/News"
+import Admin from "./pages/Admin"
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "news", Component: News },
       { path: "newsletter", Component: Newsletter },
       { path: "waitlist", Component: Waitlist },
+      { path: "admin", Component: Admin },
       { path: "*", Component: Home },
     ],
   },
