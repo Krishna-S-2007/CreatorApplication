@@ -1,0 +1,272 @@
+{
+  "waitlist": [
+    {
+      "id": "w-1791466507775",
+      "name": "Liam",
+      "email": "liam@example.com",
+      "interests": [
+        "Early access to stories",
+        "Match-day giveaways"
+      ],
+      "createdAt": "2026-10-08T13:35:07.775205Z"
+    },
+    {
+      "id": "w-1791465885672-6knl1",
+      "name": "Conor",
+      "email": "conor@example.com",
+      "interests": [
+        "Behind the scenes",
+        "Crew meet-ups"
+      ],
+      "createdAt": "2026-10-08T13:24:45.672Z"
+    }
+  ],
+  "newsletter": [
+    {
+      "id": "n-1791466507815",
+      "email": "liam@example.com",
+      "firstName": "Liam",
+      "favouriteClub": "Liverpool",
+      "createdAt": "2026-10-08T13:35:07.815531Z"
+    },
+    {
+      "id": "n-1791465890750-uxl8c",
+      "email": "aisling@example.com",
+      "firstName": "Aisling",
+      "favouriteClub": "Arsenal",
+      "createdAt": "2026-10-08T13:24:50.750Z"
+    }
+  ],
+  "articles": [
+    {
+      "id": "art-1",
+      "title": "Overwatch 2 Tank Meta Guide: How to Master Ramattra's Brawl & Tempo Shifts",
+      "slug": "overwatch-2-tank-meta-ramattra-brawl-guide",
+      "summary": "Deep-dive competitive guide on armor pool mechanics, Nemesis Form pummel cycling, and anti-dive positioning with high-rank case studies from Captain Ryan (RealRyan360).",
+      "content": "### Current Tank Meta Breakdown\n\nRecent balance adjustments in competitive Overwatch 2 have re-centered the meta around durable brawl and poke frontlines. With reductions to burst headshot multipliers and adjustments to tank knockback resistance, aggressive brawl heroes have overtaken fragile dive tanks on hybrid and push maps like Esperança and Colosseo.\n\nAmong the tank roster, **Ramattra** has solidified his spot as an S-tier pick due to his ability to toggle between long-range suppression and close-quarters brawl presence.\n\n---\n\n### Key Mechanics & Ability Cycling\n\n#### 1. Void Barrier Timing\nNever throw your Void Barrier preemptively before the fight begins. Save it specifically to block high-impact enemy cooldowns:\n- Ana's Biotic Grenade and Sleep Dart.\n- Bastion's Configuration: Assault fire.\n- Roadhog's Chain Hook.\nUse natural cover for baseline poke damage, and deploy the barrier only when stepping forward into open choke points.\n\n#### 2. Nemesis Form & Block Cycling\nNemesis Form provides 225 bonus armor and punch attacks that pierce shields (such as Reinhardt's Barrier and Winston's Bubble). \n- **The Golden Rule**: Never hold primary fire blindly. Weave your Block (which mitigates 75% of incoming frontal damage) between punches when enemy damage spikes.\n- Pair Nemesis Form with **Ravenous Vortex** to slow nimble heroes like Tracer and Genji, preventing them from escaping your Pummel range.\n\n#### 3. Annihilation in Overtime\nAnnihilation deals constant area-of-effect damage while slowing down Ramattra's ultimate drain timer as long as enemies are tethered.\n- Stay near the payload or robot rather than chasing single supports into rooms.\n- Hold Block whenever focused by multiple enemies, allowing your supports to keep you sustained while your aura chips away at their team.\n\n---\n\n### Squad Case Study: Captain Ryan (RealRyan360) on Esperança\n\nIn a recent ranked match featured on our channel (@wheatybisksgaming), **Captain Ryan (Gamertag: RealRyan360)** faced an aggressive Winston/Tracer dive comp contesting checkpoint 2 on Esperança in overtime:\n\n> *\"The enemy Winston jumped past our frontline to target our supports. Instead of turning back and conceding the objective, I dropped Ravenous Vortex behind the robot choke to ground Tracer's blinks, entered Nemesis Form, and pummeled straight through Winston's barrier while blocking his secondary lightning. With CyanDragon's Bastion providing suppressive crossfire, the enemy dive collapsed in under 4 seconds.\"*\n\n---\n\n### Pro Tips for Climbing Ranked\n1. **Track Enemy CC Cooldowns**: Don't activate Annihilation until Ana uses her Sleep Dart or Sombra reveals her position.\n2. **Ping Target Priorities**: Ramattra's punches pierce shields, making him ideal for melting out-of-position Zenyattas and Baptistes.\n3. **Know When to Swap**: If the enemy team runs heavy airborne poke (Pharah / Echo) on long sightlines, swap to Sigma for better barrier versatility.",
+      "author": "Ryan",
+      "authorHandle": "RealRyan360 (@ryan)",
+      "category": "Match Report",
+      "readTime": "5 min read",
+      "publishedAt": "2026-10-08T15:12:16.359445Z"
+    },
+    {
+      "id": "art-2",
+      "title": "Rocket League 2v2 Competitive Blueprint: Backboard Rotations & Counter-Attacks",
+      "slug": "rocket-league-2v2-competitive-rotations-blueprint",
+      "summary": "Master the 3 golden rotation rules of 2v2, 50/50 challenge baits, and backboard aerial clearances with tactical breakdowns from Jordan (Jordinho) and Ryan (RealRyan360).",
+      "content": "### Why Traditional 2v2 Rotations Fail\n\nIn Diamond and Champion lobbies, the number-one reason duos lose games is **double-committing in offensive corners**. When both teammates push deep into the corner hoping for a centering pass, an unlucky 50/50 pinch instantly converts into an open net goal for the opposition.\n\nTo consistently climb the competitive 2v2 ladder, you must replace passive goal-line defending with **dynamic backboard shadowing and fast counter-attacks**.\n\n---\n\n### The 3 Golden Rules of 2v2 Positioning\n\n#### 1. Staggered Spacing on Corner Challenges\n- **Player 1 (Challenger)**: Attack the ball with the intention of forcing a low 50/50. Do not flip commit into the wall if you don't have a clear angle.\n- **Player 2 (Support)**: Never wait on the near post. Position yourself at mid-field or on the defensive backboard. If the ball pinches high, you have full aerial trajectory to clear it cleanly over charging attackers.\n\n#### 2. The Mid-Field Boost Steal & Starvation\nWhen your teammate has pressure, do not retreat all the way back to your corner for a 100-boost pad. Instead, path through small boost pads (3 pads = 36 boost, which is plenty for a ceiling save) and steal the opponent's mid-boost. Starving opponents of boost forces awkward weak clears.\n\n#### 3. Fast Aerial Clears\nLearn the **fast aerial mechanic** (jump + tilt back + boost + double-jump without backflipping). Reaching the ball half a second earlier lets you clear the ball high toward the opponent's half rather than weakly grounding it into the center.\n\n---\n\n### Squad Case Study: Jordan (Jordinho) & Ryan (RealRyan360)\n\nIn Wheaty Bisks Gaming's competitive matches, **Jordan (Gamertag: Jordinho)** and **Ryan (Gamertag: RealRyan360)** have refined their signature counter-attack transition:\n\n> *\"When opponents send a booming shot toward our crossbar, Ryan anchors the goal line to make the low-save save. That allows me (Jordinho) to pre-jump from the back-post wall, meet the rebound off the backboard in mid-air, and launch a direct aerial counter. In our YouTube Shorts clips, like our halfway line flicks and Hoops pinches, over 70% of our goals stem from fast backboard clearances rather than slow ground dribbles.\"*\n\n---\n\n### Practical Training Pack Checklist\n- **Fast Aerial Consistency**: Practice jumping immediately after boost initiation to eliminate backflip errors.\n- **Half-Flips**: Essential for rapid 180-degree defensive recoveries.\n- **Patience on 50/50s**: Let the aggressive attacker jump into you; hold your ground with a single jump to absorb their momentum.",
+      "author": "Jordan",
+      "authorHandle": "Jordinho (@jordan)",
+      "category": "Tournament",
+      "readTime": "5 min read",
+      "publishedAt": "2026-10-08T15:12:16.359477Z"
+    },
+    {
+      "id": "art-3",
+      "title": "Fortnite Chapter Meta Guide: Bullet Drop Mastery, Rotation Items & Moving Zones",
+      "slug": "fortnite-chapter-meta-bullet-drop-loadouts",
+      "summary": "Actionable guide on adapting to projectile sniper physics, optimal 5-slot tournament inventory management, and high-ground endgame storm rotations with aka JB (Chong Bling).",
+      "content": "### Adapting to the Projectile Sandbox\n\nRecent updates to Fortnite's weapon mechanics have fundamentally changed gunplay by introducing **bullet travel time and bullet drop** across all major marksman rifles and snipers. The days of hitscan long-range point-and-click are gone; success now depends on leading targets and calculating range.\n\n---\n\n### Bullet Drop Range Calculation\n- **0–75 meters**: Aim directly at the target's upper chest / neck. Bullet drop is negligible.\n- **75–150 meters**: Place crosshair 1 chevron (tick mark) above the opponent's head.\n- **150+ meters on sprinting targets**: Aim 1.5 body-widths ahead of the runner and half a head above their model.\n\n---\n\n### Optimal 5-Slot Ranked Loadout\n1. **Primary AR / Burst**: Mid-range pressure and wall bleeding.\n2. **Shotgun (Gatekeeper / Pump)**: High burst close-quarters combat (aim for 100+ headshot tags).\n3. **Utility / Sniper**: Heavy sniper for picking rotating opponents or structure breaches.\n4. **Mobility Item**: Shockwave Grenades, Grapple Blade, or Wings to reposition instantly when caught low ground.\n5. **Stacked Healing**: Always carry stackable shields (3x Big Pots or 6x Mini Shields) instead of medkits, prioritizing quick 50-shield recovery during build fights.\n\n---\n\n### Squad Case Study: aka JB (Chong Bling) on Endgame Rotations\n\nDuring Wheaty Bisks squad sessions, **aka JB (Gamertag: Chong Bling)** and Ryan coordinate late-game rotations in moving storm zones:\n\n> *\"When the 5th and 6th storm circles start pulling over mountains, low-ground players get shredded by storm surge and falling structures. We use shockwaves to claim natural high ground early before the zone moves. Once on top, we set up cross-angles: Ryan holds thermal sniper sightlines while I watch the back flank. That high-ground setup earned us multiple duo wipe victories featured on our channel.\"*\n\n---\n\n### Pro Tips for Ranked Play\n- **Never Peak the Same Window Twice**: Good snipers pre-aim your last peek spot; always change levels or rotate windows.\n- **Conserve Mobility for Moving Zones**: Avoid burning shockwaves for early-game loot; save them for the 10-second sprint across open valleys in final circles.\n- **Hard Materials in Endgame**: Switch to Metal or Brick for your endgame boxes; wood is easily melted by spray weapons.",
+      "author": "aka JB",
+      "authorHandle": "Chong Bling (@akajb)",
+      "category": "Squad News",
+      "readTime": "5 min read",
+      "publishedAt": "2026-10-08T15:12:16.359485Z"
+    },
+    {
+      "id": "art-4",
+      "title": "League of Legends Mid-Lane Roaming Guide: Dominating EUW with Diana & Ekko",
+      "slug": "league-of-legends-mid-lane-roam-guide-diana-ekko",
+      "summary": "Master mid-lane wave crashes, 40-second roam windows, and AP assassin burst sequences on EUW with practical advice from aka JB (Chong Bling).",
+      "content": "### The State of Mid-Lane on Summoner's Rift\n\nWith map terrain widened around river bushes and the introduction of Voidgrubs, mid-lane is no longer about sitting back and farming 200 CS. Mid-laners who can rapidly push waves, secure river priority, and execute lethal dives on side-lanes dictate the pace of the entire match.\n\n---\n\n### Wave Management & The Roam Timer\n\n#### The Level 3 Cannon Wave Push\nThe foundation of effective mid-lane roaming is the **cannon wave crash**:\n1. Slowly last-hit waves 1 and 2 to build a stacked minion wave.\n2. Hard-shove wave 3 (the cannon wave) directly into the enemy mid-laner's tower.\n3. This forces the opponent to stay under turret clearing 8+ minions, granting you an **uncontested 35-40 second roam window** without losing any gold or tower plates.\n\n#### Pathing & Vision Control\n- Never path straight through river brushes if unwarded.\n- Walk through your own jungle and wrap behind the enemy bot-lane's tri-brush or river alcove.\n- Keep a Control Ward in the enemy raptor camp to track the enemy jungler's pathing before committing to an all-in dive.\n\n---\n\n### Champion Breakdown: Diana vs. Ekko\n\n#### Diana — The Teamfight Wrecker\n- **Core Build**: Lich Bane ➔ Sorcerer's Shoes ➔ Shadowflame ➔ Zhonya's Hourglass.\n- **Burst Sequence**: Q (Crescent Strike) ➔ E (Lunar Rush) ➔ W (Pale Cascade) ➔ R (Moonfall). Always ensure Q hits before casting E to reset your dash cooldown.\n- **Dragon Pit Domination**: Use Moonfall when the enemy team gathers around the dragon pit entrance to pull 3+ champions into allied area-of-effect abilities.\n\n#### Ekko — The Untouchable Dive Specialist\n- **Core Build**: Hextech Rocketbelt ➔ Lich Bane ➔ Rabadon's Deathcap.\n- **Tower Dive Safety**: Throw W (Parallel Convergence) behind the enemy tower, dash in with E, burst with Q and auto-attack to proc your passive movement speed, then cast R (Chronobreak) to rewind back to safety with zero damage taken.\n\n---\n\n### Squad Case Study: aka JB (Chong Bling) on EUW Ranked\n\nKnown across the squad as the self-proclaimed *\"Best Diana EU-West\"*, **aka JB (Gamertag: Chong Bling)** breaks down his competitive approach:\n\n> *\"In solo queue on EUW, enemy bot-laners consistently overextend when they see their mid-laner farming under tower. By timing my wave shove right before dragon spawns, I can drop down to bot-lane, land a full Lunar Rush into Moonfall combo, and secure a double kill before their mid-laner can even ping missing. Even when we traveled to Italy for the Milan Derby, I was reviewing wave states and jungle timers in our match breakdowns!\"*\n\n---\n\n### Key Takeaways for Ranked Climbers\n- If your roam fails to find a kill, do not linger in the side-lane; rotate back immediately so your wave doesn't bounce into an enemy freeze.\n- Prioritize Voidgrub fights at 5 minutes; having grub push power makes mid-lane towers melt.",
+      "author": "aka JB",
+      "authorHandle": "Chong Bling (@akajb)",
+      "category": "Match Report",
+      "readTime": "5 min read",
+      "publishedAt": "2026-10-08T15:12:16.359491Z"
+    },
+    {
+      "id": "art-5",
+      "title": "Rainbow Six Siege Retake Guide: Directional Audio, Angle Slicing & Overtime Clutches",
+      "slug": "rainbow-six-siege-retake-audio-clutch-guide",
+      "summary": "How to isolate 1v1 gunfights, leverage acoustic sound propagation through breached walls, and defuse post-plants with tactical lessons from CyanDragon (Cyandragon).",
+      "content": "### Understanding Directional Sound Propagation\n\nIn tactical shooters like Tom Clancy's Rainbow Six Siege, audio is your primary weapon. Unlike other FPS games where sound travels in straight lines through geometry, Siege uses **acoustic propagation**:\n- Sound always travels through the **closest physical opening** (breached murder holes, drone vents, open doorways, or destroyed barricades).\n- Punching a small melee hole in a soft wall allows audio from adjacent rooms to reach you without revealing your body position.\n\n---\n\n### The Anatomy of a 1vX Retake\n\nWhen you are the last defender or attacker alive against multiple opponents, your goal is **never to fight two people at once**:\n\n#### 1. Angle Slicing (Pieing the Corner)\nNever peek around a corner in one wide swing. Clear angles incrementally:\n- Clear the shallow angle (15 degrees), pause.\n- Step out to 45 degrees, pause.\n- Step out to 90 degrees.\nThis ensures you only expose your hitboxes to one enemy crosshair at a time.\n\n#### 2. Sound Baiting & The Fake Defuse\nOn post-plant bomb retakes:\n- Tap the defuser for 0.5 seconds to trigger the audio prompt.\n- Instantly cancel and pre-aim the nearest doorway.\n- Defenders almost always rush to peek when they hear the defuse sound, giving you an easy pre-fire headshot.\n\n#### 3. Crosshair Placement & First-Shot Recoil\nKeep your crosshair locked at standing head level when holding doors, and crouch level when clearing corners. High-fire-rate SMGs (like the MP5 or MPX) must be burst-fired at range to avoid muzzle climb.\n\n---\n\n### Squad Case Study: CyanDragon (Cyandragon) — The 1v4 Consulate Clutch\n\nIn one of the most celebrated clips on the Wheaty Bisks Gaming channel, **CyanDragon (Gamertag: Cyandragon)** found himself in an impossible 1v4 post-plant on Consulate with 35 seconds on the clock:\n\n> *\"The enemy squad was confident and pushed individually looking for the final frag. By tracking footstep propagation through the upper corridor hole, I held tight crosshairs and eliminated two attackers as they sprinted through the hallway. For the final two defenders, I threw smoke onto the bomb chassis, tapped the defuser to bait the peek, landed the headshot through the smoke haze, and completed the defuse with 0.4 seconds left on the match clock.\"*\n\n---\n\n### Practical Retake Checklist\n- Keep your drone alive in the prep phase; place it in your planned entry room for quick intel.\n- Never sprint in final 30 seconds; sprint-to-fire delay will cost you the gunfight.\n- Remember: the defuse takes 7 seconds; initiate your defuse before 0:07 on the timer.",
+      "author": "CyanDragon",
+      "authorHandle": "Cyandragon (@cyandragon)",
+      "category": "Match Report",
+      "readTime": "5 min read",
+      "publishedAt": "2026-10-08T15:12:16.359497Z"
+    },
+    {
+      "id": "art-6",
+      "title": "Creator Audio & Production Guide: OBS Multi-Track Routing & Rec Room 3D Asset Design",
+      "slug": "creator-audio-obs-rec-room-3d-design-guide",
+      "summary": "Professional setup guide on routing Discord comms and game audio into separate tracks, plus 3D asset modeling pipelines in Rec Room by Emedic (E Medic).",
+      "content": "### Professional Multi-Track Audio Routing for Gaming Creators\n\nOne of the most frustrating problems for gaming groups is recording squad sessions where Discord voice chat bleeds into game audio. If someone coughs or game volume spikes, the entire video clip is ruined.\n\nHere is how to set up **clean multi-track audio routing** in OBS Studio:\n\n---\n\n### Step-by-Step OBS Audio Configuration\n\n#### 1. Enable Application Audio Output Capture\nRather than capturing 'Desktop Audio' as a single source:\n- Add Source ➔ **Application Audio Capture (BETA)** ➔ Select your Game (e.g., Overwatch 2 / Rocket League).\n- Add Source ➔ **Application Audio Capture** ➔ Select Discord.\n- Add Source ➔ **Audio Input Capture** ➔ Select your Microphone.\n\n#### 2. Advanced Audio Properties Matrix\nOpen Edit ➔ Advanced Audio Properties, and assign each source to dedicated recording tracks:\n- **Track 1 (Master Mix)**: Game + Discord + Mic (for live preview or streams).\n- **Track 2 (Game Only)**: Overwatch / Rocket League audio.\n- **Track 3 (Voice Comms Only)**: Discord squad chat.\n- **Track 4 (Microphone Only)**: Your personal microphone.\n\nIn your video editor (Premiere Pro, DaVinci Resolve, or CapCut), each track appears as an independent audio layer. You can mute a background Discord comment or boost your own voice without affecting the in-game sound effects.\n\n---\n\n### 3D Character Asset Design in Rec Room\n\nBeyond video production, **Emedic (Gamertag: E Medic / @emedic0615)** specializes in character concept art and 3D modeling using Rec Room's Maker Pen:\n\n#### The Genesis of 'Meowhardt'\nHow did the squad's official mascot come to life?\n1. **Concept Fusion**: Combining the feline muscle physique of Fortnite's Meowscles with the German crusader armor and rocket hammer of Overwatch's Reinhardt.\n2. **Wireframe Prototyping**: Over 14 hours sculpting geometric primitives inside Rec Room's virtual canvas.\n3. **Texture & Lighting**: Applying metallic gradients and neon accents to capture the squad's high-octane gaming aesthetic.\n\n> *\"When designing gaming assets or community merchandise, balance is everything,\" Emedic explains. \"Whether it's designing Meowhardt stickers for our exclusive waitlist members or setting up dual-channel audio interfaces for late-night laughing fits, good production habits make great squad content.\"*\n\n---\n\n### Key Takeaways for New Creators\n- Always record in `.mkv` format in OBS; if your PC crashes, `.mkv` saves your footage, whereas `.mp4` corrupts.\n- Use a dynamic microphone with a pop filter to minimize mechanical keyboard click bleed.\n- Export YouTube Shorts in 1080x1920 (9:16 vertical) at 60fps with high bitrate (15-20 Mbps) for crisp mobile playback.",
+      "author": "Emedic",
+      "authorHandle": "E Medic (@emedic0615)",
+      "category": "Art & Community",
+      "readTime": "5 min read",
+      "publishedAt": "2026-10-08T15:12:16.359504Z"
+    },
+    {
+      "id": "art-7",
+      "title": "Dislyte Speed Tuning & Miracle Dungeon Guide: Kronos & Apep Cleave Strategies",
+      "slug": "dislyte-speed-tuning-miracle-dungeon-guide",
+      "summary": "Master turn-one AP manipulation, relic resonance stat thresholds, and sub-60-second Miracle boss speed clears with aka JB (Chong Bling).",
+      "content": "### The Fundamentals of Dislyte Speed Tuning\n\nIn turn-based gacha RPGs like Dislyte, victory is determined before the first ability is cast. **Action Point (AP) manipulation** and strict **Speed (SPD) tuning** dictate whether your team wipes the enemy wave or gets wiped before taking a turn.\n\n---\n\n### The Speed Cleave Turn Order\n\nTo guarantee sub-60-second runs in Ritual Miracle dungeons (Kronos and Apep):\n\n#### Turn 1: Primary AP Pusher (Dhalia / Unas / Tiye)\n- Needs **maximum SPD relics** (Wind set with SPD main stat on the Mui II relic).\n- Goal: Move first, boost the entire team's Action Point bar by 25-30%, and provide an ATK/CRIT rate buff.\n\n#### Turn 2: Defense Breaker (Gabrielle / Lin Xiao)\n- Must be tuned to move immediately after your AP pusher (within 5-10 SPD).\n- Applies team-wide DEF Down to weaken the boss and add immunity buffs to your allies.\n\n#### Turn 3 & 4: Primary Single-Target / AOE DPS (Gaius / Sander / Brewster)\n- Built with high ATK, 100% CRIT Rate, and 250%+ CRIT DMG.\n- Exploit the defense-broken targets to burst the boss before shield or counter-attack phases trigger.\n\n---\n\n### Squad Case Study: aka JB (Chong Bling)'s Gacha Summons & Patch Analysis\n\nAcross the Wheaty Bisks Gaming channel, **aka JB (Gamertag: Chong Bling)** is known for his in-depth patch note reviews and legendary summon streams:\n\n> *\"In our 'JB reads the V3.3.7 Patch Notes' video and our summon series, we analyzed how relic set bonuses shift turn-one damage thresholds. If your damage dealer lacks enough speed to move before Kronos' boulder slam, your entire run collapses. Getting the right resonance on legendary espers makes the difference between consistent auto-farming and constant wipes.\"*\n\n---\n\n### Relic Optimization Checklist\n- Prioritize **SPD substat rolls** on all 6 relic pieces.\n- For Kronos: Focus on Wind + Fiery set bonuses for speed and crit consistency.\n- For Apep: Run Nether relics for life-steal sustain against poison stacks.",
+      "author": "aka JB",
+      "authorHandle": "Chong Bling (@akajb)",
+      "category": "Podcast",
+      "readTime": "4 min read",
+      "publishedAt": "2026-10-08T15:12:16.359510Z"
+    }
+  ],
+  "chatLogs": [
+    {
+      "id": "chat-1791476459096",
+      "timestamp": "2026-10-08T16:20:59.096122Z",
+      "userMessage": "Are you really ai?",
+      "assistantReply": "Yeah, I’m the official AI Assistant for Wheaty Bisks Gaming! I’m here to chat about the squad, share the latest news, and help you find your way around the channel and website. Think of me as your digital wingman for all things WB.\n\nWhile I might not be physically in the chair playing Ramattra or hitting the griddy at the RDS, I’ve got all the lore, inside jokes, and squad intel down pat. So, whether you want to know about Emedic’s Meowhardt masterpiece or JB’s soccer rants, I’m your guy.\n\nGot any questions about the crew or what’s coming up? Let’s have the craic! 🍻🎮"
+    },
+    {
+      "id": "chat-1791476445643",
+      "timestamp": "2026-10-08T16:20:45.643959Z",
+      "userMessage": "How do I join the exclusive waitlist?",
+      "assistantReply": "Ah, you’re looking to get in on the action! Joining the exclusive Waitlist is the perfect way to get behind-the-scenes access, catch early story drops, and snag match-day giveaways with the squad.\n\nTo join, simply head over to the **/waitlist** section on our website. It’s a quick and easy sign-up that gets you straight onto the list for all the exclusive perks. Once you’re in, you’ll be the first to know when new content drops or when we’re planning a squad meet-up.\n\nDon’t wait too long, though—there’s always the craic to be had, and you don’t want to miss out on the next big Wheaty Bisks event! 🍺🎮"
+    },
+    {
+      "id": "chat-1791473633006",
+      "timestamp": "2026-10-08T15:33:53.006980Z",
+      "userMessage": "Okay so like get me the recent video link",
+      "assistantReply": "I actually don’t have real-time access to our specific upload schedule or the ability to generate live URLs, so I can’t drop a direct link to the very latest upload right now. My database cuts off before today’s uploads!\n\nHowever, finding it is super easy. Just head over to our YouTube channel at **@wheatybisksgaming** and check the \"Home\" or \"Videos\" tab. The most recent upload will be right at the top, ready to serve up some craic.\n\nIf you’re looking for something specific—like a recent Overwatch 2 highlight, a Rocket League replay, or one of JB’s podcast episodes—let me know the game or topic, and I can tell you which type of content to look for! 🎮📺"
+    },
+    {
+      "id": "chat-1791473599008",
+      "timestamp": "2026-10-08T15:33:19.008593Z",
+      "userMessage": "So how many subscriber do you have",
+      "assistantReply": "Ah, that’s a sneaky one! While we might not shout the exact number from the rooftops, we’ve got a solid, growing crew of fans who tune in for the craic, the clutches, and the chaos. 📈\n\nWhether you’re a long-time loyalist or just stumbled in after seeing JB hit the griddy, you’re now part of the family. If you haven’t already, hit that subscribe button on our channel (@wheatybisksgaming) so you never miss a match-day story, a squad art drop, or a legendary inside joke.\n\nAnd if you want to get even closer to the action—like behind-the-scenes access and match-day giveaways—why not join our exclusive Waitlist? It’s the best way to make sure you’re in on all the latest Wheaty Bisks shenanigans! 🎮🍀"
+    },
+    {
+      "id": "chat-1791473577114",
+      "timestamp": "2026-10-08T15:32:57.114477Z",
+      "userMessage": "So who are the 5 creators over here",
+      "assistantReply": "Glad you asked! We are a tight-knit squad of five based in Dublin, each bringing their own unique flavor to the channel. Here’s the rundown:\n\n*   **Ryan (#01 | RealRyan360):** Our Captain, editor, and tactical anchor. He’s the one dropping Ramattra team wipes in Overwatch 2, pulling off defensive Rocket League counter-attacks, and keeping the videos polished.\n*   **Jordan (#02 | Jordinho):** The Playmaker and our on-mic hype voice. If you’ve ever heard a \"play of the game\" call that made you jump, it was probably Jordan. He’s also a Rocket League solo goal maestro.\n*   **Emedic (#03 | E Medic):** Our artist, creator, and wholesome vibe keeper. He’s the mind behind the legendary **Meowhardt** (Meowscles + Reinhardt) and is a massive fan of Slime Rancher and Pokémon plushies.\n*   **CyanDragon (#04 | Cyandragon):** The pure clutch fragger. This is your guy for Bastion \"go brrr\" moments, Doomfist power, and 1v4 clutches in Rainbow Six Siege.\n*   **aka JB (#05 | JB / Chong Bling):** The energy creator and competitive grinder. He hosts the WB Podcast, breaks down Dislyte packs, dominates LoL as Diana, and is unfortunately (or fortunately) famous for hitting the griddy at the RDS and UCD.\n\nCome on in, the craic is better with you! 🍀"
+    },
+    {
+      "id": "chat-1791473554715",
+      "timestamp": "2026-10-08T15:32:34.715362Z",
+      "userMessage": "hello",
+      "assistantReply": "Howya do! Welcome to the Wheaty Bisks Gaming HQ. 👋\n\nWe’re the crew out of Dublin here, ready to bring you the craic, some clutch ranked wins, and a few late-night laughing fits. Whether you’re here for Overwatch 2 highlights, Rocket League aerials, or just to hear JB rant about Soccer Aid again, you’re in the right place.\n\nGot a specific question about the squad, our latest videos, or maybe you’re ready to join the exclusive Waitlist for some behind-the-scenes action? Let us know what you’re after! 🎮🍀"
+    },
+    {
+      "id": "chat-1791473535677",
+      "timestamp": "2026-10-08T15:32:15.677869Z",
+      "userMessage": "What is the secret behind RealRyan360 and his Ramattra plays?",
+      "assistantReply": "Ah, you’re asking about the Captain’s secret sauce! 🍯 RealRyan360’s Ramattra isn’t just a hero pick; it’s a tactical anchor for the whole squad. The \"secret\" is actually a mix of pure mechanical skill and that classic Irish intuition. Ryan doesn’t just spam the Void Tendrils; he uses them to punish enemy positioning mistakes and create chaotic openings for the rest of the crew.\n\nHis famous overtime team wipes usually come down to patience. He’ll sit back, let the enemy over-commit, and then snap into Infernal Form at the perfect moment to turn the tide. It’s less about raw aggression and more about reading the map like a Dublin pub map—knowing exactly where the pressure points are. When he goes off, it’s not just a play; it’s a statement piece that usually leaves the enemy team questioning their life choices.\n\nSo, if you’re looking to copy the Captain, remember: watch the enemy, trust the timing, and always be ready to drop the hammer when the craic gets heated! 🔨🔥"
+    },
+    {
+      "id": "chat-1791473515825",
+      "timestamp": "2026-10-08T15:31:55.825584Z",
+      "userMessage": "What is the secret behind RealRyan360 and his Ramattra plays?",
+      "assistantReply": "**Ryan (RealRyan360)** is the captain and video editor of Wheaty Bisks Gaming! When he's not cutting together reels for our YouTube channel, he's anchoring the front line in Overwatch 2 on Ramattra, Junkrat, and Sigma, or pulling off high-speed aerials in Rocket League. He keeps the squad disciplined when lobbies get chaotic!"
+    },
+    {
+      "id": "chat-1791471915896",
+      "timestamp": "2026-10-08T15:05:15.897024Z",
+      "userMessage": "how many subscriber",
+      "assistantReply": "Our **Weekly Newsletter** (/newsletter) drops matchday stories and quotes from sporting legends straight to your inbox every Friday. Drop your email and favourite club on the Newsletter page so you never miss a kickoff!"
+    },
+    {
+      "id": "chat-1791471904770",
+      "timestamp": "2026-10-08T15:05:04.770905Z",
+      "userMessage": "hi",
+      "assistantReply": "Welcome to the Wheaty Bisks squad assistant! 🎮 We're five friends from Ireland (Ryan, Jordan, Emedic, CyanDragon, and aka JB) streaming high-stakes gameplay, laughing at chaotic lobbies, and having the craic.\n\nYou can ask me about our members, our favourite games (Overwatch 2, Rocket League, Fortnite, League), our YouTube highlights, or how to get on the exclusive Waitlist and Newsletter. What's on your mind?"
+    },
+    {
+      "id": "chat-1791471738685",
+      "timestamp": "2026-10-08T15:02:18.686007Z",
+      "userMessage": "Tell me about Emedic",
+      "assistantReply": "**Emedic (@emedic0615)** is our squad artist and creator! He's the mastermind behind **Meowhardt** — the epic mashup drawing of Fortnite's Meowscles and Overwatch's Reinhardt that he drew in Rec Room. He plays Ramattra and Junkrat in Overwatch 2, loves Slime Rancher, and his setup is stacked with cute Pokémon plushies."
+    },
+    {
+      "id": "chat-1791471545147",
+      "timestamp": "2026-10-08T14:59:05.148025Z",
+      "userMessage": "Who is Captain Ryan?",
+      "assistantReply": "**Ryan (RealRyan360)** is the captain and video editor of Wheaty Bisks Gaming! When he's not cutting together reels for our YouTube channel, he's anchoring the front line in Overwatch 2 on Ramattra, Junkrat, and Sigma, or pulling off high-speed aerials in Rocket League. He keeps the squad disciplined when lobbies get chaotic!"
+    },
+    {
+      "id": "chat-1791471515151",
+      "timestamp": "2026-10-08T14:58:35.151847Z",
+      "userMessage": "Who is Captain Ryan?",
+      "assistantReply": "**Ryan (RealRyan360)** is the captain and video editor of Wheaty Bisks Gaming! When he's not cutting together reels for our YouTube channel, he's anchoring the front line in Overwatch 2 on Ramattra, Junkrat, and Sigma, or pulling off high-speed aerials in Rocket League. He keeps the squad disciplined when lobbies get chaotic!"
+    },
+    {
+      "id": "chat-1791471488086",
+      "timestamp": "2026-10-08T14:58:08.086283Z",
+      "userMessage": "Who is Captain Ryan?",
+      "assistantReply": "**Ryan (RealRyan360)** is the captain and video editor of Wheaty Bisks Gaming! When he's not cutting together reels for our YouTube channel, he's anchoring the front line in Overwatch 2 on Ramattra, Junkrat, and Sigma, or pulling off high-speed aerials in Rocket League. He keeps the squad disciplined when lobbies get chaotic!"
+    },
+    {
+      "id": "chat-1791471445430",
+      "timestamp": "2026-10-08T14:57:25.430826Z",
+      "userMessage": "Who is Captain Ryan?",
+      "assistantReply": "**Ryan (RealRyan360)** is the captain and video editor of Wheaty Bisks Gaming! When he's not cutting together reels for our YouTube channel, he's anchoring the front line in Overwatch 2 on Ramattra, Junkrat, and Sigma, or pulling off high-speed aerials in Rocket League. He keeps the squad disciplined when lobbies get chaotic!"
+    },
+    {
+      "id": "chat-1791471399256",
+      "timestamp": "2026-10-08T14:56:39.256885Z",
+      "userMessage": "Who are the members of the squad?",
+      "assistantReply": "Wheaty Bisks Gaming is powered by five close friends based in Ireland who've been grinding ranked and having the craic together:\n\n1. ⚔️ **Ryan (#01 - Captain / Editor)**: Our tactical shot-caller and video editor (RealRyan360). Known for clutch Ramattra team wipes in Overwatch 2 and laser Rocket League counter-attacks.\n2. 🎙️ **Jordan (#02 - Playmaker / Voice)**: Jordinho! The voice on the comms and our top Rocket League playmaker.\n3. 🎨 **Emedic (#03 - Creator / Artist)**: The creative soul behind our legendary 'Meowhardt' mascot (Meowscles x Reinhardt), Rec Room drawings, and guardian of all gaming plushies.\n4. 🐉 **CyanDragon (#04 - Squad Member / Creator)**: Our cold-blooded clutch fragger (Bastion go brrr, Doomfist, and 1v4 Rainbow Six Siege clutches).\n5. ⚡ **aka JB (#05 - Squad Member / Creator)**: Chong Bling! Gacha master (Dislyte), League of Legends grinder (Ekko/Diana EUW), host of the WB Podcast, and champion of hitting the griddy at the RDS in Dublin!\n\nWant early access to squad match footage and meetups? Jump on our **Waitlist** or sign up for the **Newsletter**!"
+    },
+    {
+      "id": "chat-1791471341449",
+      "timestamp": "2026-10-08T14:55:41.449366Z",
+      "userMessage": "Who are the members of the squad?",
+      "assistantReply": "Wheaty Bisks Gaming is powered by five close friends based in Ireland who've been grinding ranked and having the craic together:\n\n1. ⚔️ **Ryan (#01 - Captain / Editor)**: Our tactical shot-caller and video editor (RealRyan360). Known for clutch Ramattra team wipes in Overwatch 2 and laser Rocket League counter-attacks.\n2. 🎙️ **Jordan (#02 - Playmaker / Voice)**: Jordinho! The voice on the comms and our top Rocket League playmaker.\n3. 🎨 **Emedic (#03 - Creator / Artist)**: The creative soul behind our legendary 'Meowhardt' mascot (Meowscles x Reinhardt), Rec Room drawings, and guardian of all gaming plushies.\n4. 🐉 **CyanDragon (#04 - Squad Member / Creator)**: Our cold-blooded clutch fragger (Bastion go brrr, Doomfist, and 1v4 Rainbow Six Siege clutches).\n5. ⚡ **aka JB (#05 - Squad Member / Creator)**: Chong Bling! Gacha master (Dislyte), League of Legends grinder (Ekko/Diana EUW), host of the WB Podcast, and champion of hitting the griddy at the RDS in Dublin!\n\nWant early access to squad match footage and meetups? Jump on our **Waitlist** or sign up for the **Newsletter**!"
+    },
+    {
+      "id": "chat-1791470704461",
+      "timestamp": "2026-10-08T14:45:04.461736Z",
+      "userMessage": "what is",
+      "assistantReply": "Welcome to the Wheaty Bisks squad assistant! 🎮 We're five friends from Ireland (Ryan, Jordan, Emedic, CyanDragon, and aka JB) streaming high-stakes gameplay, laughing at chaotic lobbies, and having the craic.\n\nYou can ask me about our members, our favourite games (Overwatch 2, Rocket League, Fortnite, League), our YouTube highlights, or how to get on the exclusive Waitlist and Newsletter. What's on your mind?"
+    },
+    {
+      "id": "chat-1791470696810",
+      "timestamp": "2026-10-08T14:44:56.810489Z",
+      "userMessage": "hi",
+      "assistantReply": "Welcome to the Wheaty Bisks squad assistant! 🎮 We're five friends from Ireland (Ryan, Jordan, Emedic, CyanDragon, and aka JB) streaming high-stakes gameplay, laughing at chaotic lobbies, and having the craic.\n\nYou can ask me about our members, our favourite games (Overwatch 2, Rocket League, Fortnite, League), our YouTube highlights, or how to get on the exclusive Waitlist and Newsletter. What's on your mind?"
+    },
+    {
+      "id": "chat-1791470692701",
+      "timestamp": "2026-10-08T14:44:52.701230Z",
+      "userMessage": "hi",
+      "assistantReply": "Welcome to the Wheaty Bisks squad assistant! 🎮 We're five friends from Ireland (Ryan, Jordan, Emedic, CyanDragon, and aka JB) streaming high-stakes gameplay, laughing at chaotic lobbies, and having the craic.\n\nYou can ask me about our members, our favourite games (Overwatch 2, Rocket League, Fortnite, League), our YouTube highlights, or how to get on the exclusive Waitlist and Newsletter. What's on your mind?"
+    },
+    {
+      "id": "chat-1791470628333",
+      "timestamp": "2026-10-08T14:43:48.333293Z",
+      "userMessage": "Tell me about Captain Ryan",
+      "assistantReply": "**Ryan (RealRyan360)** is the captain and video editor of Wheaty Bisks Gaming! When he's not cutting together reels for our YouTube channel, he's anchoring the front line in Overwatch 2 on Ramattra, Junkrat, and Sigma, or pulling off high-speed aerials in Rocket League. He keeps the squad disciplined when lobbies get chaotic!"
+    },
+    {
+      "id": "chat-1791466502067",
+      "timestamp": "2026-10-08T13:35:02.067372Z",
+      "userMessage": "Who are the members of Wheaty Bisks Gaming?",
+      "assistantReply": "Wheaty Bisks Gaming is powered by five close friends based in Ireland who've been grinding ranked and having the craic together:\n\n1. ⚔️ **Ryan (#01 - Captain / Editor)**: Our tactical shot-caller and video editor (RealRyan360). Known for clutch Ramattra team wipes in Overwatch 2 and laser Rocket League counter-attacks.\n2. 🎙️ **Jordan (#02 - Playmaker / Voice)**: Jordinho! The voice on the comms and our top Rocket League playmaker.\n3. 🎨 **Emedic (#03 - Creator / Artist)**: The creative soul behind our legendary 'Meowhardt' mascot (Meowscles x Reinhardt), Rec Room drawings, and guardian of all gaming plushies.\n4. 🐉 **CyanDragon (#04 - Squad Member / Creator)**: Our cold-blooded clutch fragger (Bastion go brrr, Doomfist, and 1v4 Rainbow Six Siege clutches).\n5. ⚡ **aka JB (#05 - Squad Member / Creator)**: Chong Bling! Gacha master (Dislyte), League of Legends grinder (Ekko/Diana EUW), host of the WB Podcast, and champion of hitting the griddy at the RDS in Dublin!\n\nWant early access to squad match footage and meetups? Jump on our **Waitlist** or sign up for the **Newsletter**!"
+    },
+    {
+      "id": "chat-1791465880675",
+      "timestamp": "2026-10-08T13:24:40.675Z",
+      "userMessage": "Tell me about Meowhardt and Emedic",
+      "assistantReply": "**Emedic (@emedic0615)** is our squad artist and creator! He's the mastermind behind **Meowhardt** — the epic mashup drawing of Fortnite's Meowscles and Overwatch's Reinhardt that he drew in Rec Room. He plays Ramattra and Junkrat in Overwatch 2, loves Slime Rancher, and his setup is stacked with cute Pokémon plushies."
+    },
+    {
+      "id": "chat-1791465876280",
+      "timestamp": "2026-10-08T13:24:36.280Z",
+      "userMessage": "Who are the members of the squad and what do they play?",
+      "assistantReply": "Wheaty Bisks Gaming is powered by five close friends based in Ireland who've been grinding ranked and having the craic together:\n\n1. ⚔️ **Ryan (#01 - Captain / Editor)**: Our tactical shot-caller and video editor (RealRyan360). Known for clutch Ramattra team wipes in Overwatch 2 and laser Rocket League counter-attacks.\n2. 🎙️ **Jordan (#02 - Playmaker / Voice)**: Jordinho! The voice on the comms and our top Rocket League playmaker.\n3. 🎨 **Emedic (#03 - Creator / Artist)**: The creative soul behind our legendary 'Meowhardt' mascot (Meowscles x Reinhardt), Rec Room drawings, and guardian of all gaming plushies.\n4. 🐉 **CyanDragon (#04 - Squad Member / Creator)**: Our cold-blooded clutch fragger (Bastion go brrr, Doomfist, and 1v4 Rainbow Six Siege clutches).\n5. ⚡ **aka JB (#05 - Squad Member / Creator)**: Chong Bling! Gacha master (Dislyte), League of Legends grinder (Ekko/Diana EUW), host of the WB Podcast, and champion of hitting the griddy at the RDS in Dublin!\n\nWant early access to squad match footage and meetups? Jump on our **Waitlist** or sign up for the **Newsletter**!"
+    }
+  ]
+}
