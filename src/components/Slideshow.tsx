@@ -15,61 +15,107 @@ const slides = [
 
 export default function Slideshow({ children }: { children?: ReactNode }) {
   const [i, setI] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const go = useCallback((d: number) => setI((x) => (x + d + slides.length) % slides.length), [])
+  const [cycleKey, setCycleKey] = useState(0)
 
+  const go = useCallback((d: number) => {
+    setI((x) => (x + d + slides.length) % slides.length)
+    setCycleKey((k) => k + 1)
+  }, [])
+
+  const jumpTo = useCallback((n: number) => {
+    setI(n)
+    setCycleKey((k) => k + 1)
+  }, [])
+
+  // Eagerly preload all slide images in browser cache
   useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    const t = setInterval(() => go(1), 3200)
-    return () => clearInterval(t)
-  }, [paused, go])
+    slides.forEach((s) => {
+      const img = new Image()
+      img.src = s.src
+    })
+  }, [])
+
+  // Shuffle every 4 seconds no matter what
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setI((x) => (x + 1) % slides.length)
+      setCycleKey((k) => k + 1)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [cycleKey])
 
   return (
     <section className={children ? "relative" : "mx-auto max-w-7xl px-6"} aria-roledescription="carousel" aria-label="Game highlights">
-      {!children && <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-black uppercase leading-none">
-        <span className="text-outline">Game</span> <span className="text-lime">highlights</span>
-      </h2>}
+      {!children && (
+        <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-black uppercase leading-none">
+          <span className="text-outline">Game</span> <span className="text-lime">highlights</span>
+        </h2>
+      )}
       <div
-        className={children ? "gaming-hero relative overflow-hidden bg-ink-deep" : "relative mt-10 aspect-[16/10] overflow-hidden rounded-3xl border border-white/10 bg-ink-deep shadow-[0_30px_80px_rgba(0,0,0,0.6)] sm:aspect-[16/8]"}
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
+        className={
+          children
+            ? "gaming-hero relative overflow-hidden bg-ink-deep"
+            : "relative mt-10 aspect-[16/10] overflow-hidden rounded-3xl border border-white/10 bg-ink-deep shadow-[0_30px_80px_rgba(0,0,0,0.6)] sm:aspect-[16/8]"
+        }
       >
         {slides.map((s, n) => (
           <img
             key={s.title}
             src={s.src}
             alt={s.alt}
-            loading={n === 0 ? "eager" : "lazy"}
+            loading="eager"
+            decoding="async"
             aria-hidden={n !== i}
-            className={`absolute inset-0 h-full w-full object-cover transition-all duration-600 ease-out ${n === i ? "scale-100 opacity-100" : "scale-105 opacity-0"}`}
+            className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-in-out ${
+              n === i
+                ? "scale-100 opacity-100 z-[1]"
+                : "scale-105 opacity-0 z-0 pointer-events-none"
+            }`}
           />
         ))}
-        <div className={children ? "hero-shade absolute inset-0" : "absolute inset-0 bg-[linear-gradient(to_top,rgba(10,10,10,0.92),rgba(10,10,10,0.35)_55%,rgba(10,10,10,0.6))]"} />
-        <div className="absolute inset-0 bg-ink/25 mix-blend-multiply" />
+        <div className={children ? "hero-shade absolute inset-0 z-[2]" : "absolute inset-0 z-[2] bg-[linear-gradient(to_top,rgba(10,10,10,0.92),rgba(10,10,10,0.35)_55%,rgba(10,10,10,0.6))]"} />
+        <div className="absolute inset-0 z-[2] bg-ink/25 mix-blend-multiply" />
         {children && <div className="relative z-10">{children}</div>}
 
         <div className="glass absolute inset-x-4 bottom-4 z-20 mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-2xl px-5 py-4 sm:inset-x-6 sm:bottom-6">
           <div>
-            <div className="text-[10px] uppercase tracking-widest text-lime">
-              {String(i + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
+            <div className="text-[10px] uppercase tracking-widest text-lime font-mono">
+              {String(i + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")} • {slides[i].title}
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="hidden gap-2 sm:flex">
+            <div className="hidden gap-2 sm:flex items-center">
               {slides.map((s, n) => (
                 <button
                   key={s.title}
-                  onClick={() => setI(n)}
+                  onClick={() => jumpTo(n)}
                   aria-label={`Go to slide ${n + 1}`}
                   aria-current={n === i}
-                  className={`h-1.5 rounded-full transition-all ${n === i ? "w-8 bg-lime" : "w-3 bg-white/40 hover:bg-white/70"}`}
-                />
+                  className={`relative h-2 overflow-hidden rounded-full transition-all cursor-pointer ${
+                    n === i ? "w-10 bg-white/20" : "w-3 bg-white/30 hover:bg-white/60"
+                  }`}
+                >
+                  {n === i && (
+                    <span
+                      key={cycleKey}
+                      className="animate-slide-progress absolute inset-0 rounded-full bg-lime"
+                    />
+                  )}
+                </button>
               ))}
             </div>
-            <button onClick={() => go(-1)} aria-label="Previous slide" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 transition hover:bg-lime hover:text-ink">
+            <button
+              onClick={() => go(-1)}
+              aria-label="Previous slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 transition hover:bg-lime hover:text-ink cursor-pointer"
+            >
               &larr;
             </button>
-            <button onClick={() => go(1)} aria-label="Next slide" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 transition hover:bg-lime hover:text-ink">
+            <button
+              onClick={() => go(1)}
+              aria-label="Next slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 transition hover:bg-lime hover:text-ink cursor-pointer"
+            >
               &rarr;
             </button>
           </div>

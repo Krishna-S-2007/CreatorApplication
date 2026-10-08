@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Link } from "react-router"
 import Slideshow from "../components/Slideshow"
 import Ticker from "../components/Ticker"
@@ -9,6 +9,13 @@ import SquadHighlights from "../components/SquadHighlights"
 function Hero() {
   const [idx, setIdx] = useState(0)
   const f = featured[idx]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIdx((prev) => (prev + 1) % featured.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
   return (
     <Slideshow>
     <section className="relative mx-auto grid max-w-7xl gap-12 px-6 pb-36 pt-16 sm:pt-24 lg:min-h-[760px] lg:grid-cols-[1fr] lg:items-center lg:gap-16 lg:pb-40">

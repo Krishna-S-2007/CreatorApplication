@@ -265,3 +265,16 @@ body {
 .speech-float {
   animation: speech-bubble-float 2.4s ease-in-out infinite;
 }
+
+@keyframes slide-progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-slide-progress {
+  animation: slide-progress 4s linear forwards;
+}
