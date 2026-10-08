@@ -5,14 +5,24 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from dotenv import load_dotenv
 
-from backend.models import (
-    ChatRequest, ChatResponse,
-    WaitlistCreate, WaitlistEntry,
-    NewsletterCreate, NewsletterSubscriber,
-    NewsArticleCreate, NewsArticle
-)
-from backend.db import db
-from backend.groq_service import generate_chat_reply
+try:
+    from backend.models import (
+        ChatRequest, ChatResponse,
+        WaitlistCreate, WaitlistEntry,
+        NewsletterCreate, NewsletterSubscriber,
+        NewsArticleCreate, NewsArticle
+    )
+    from backend.db import db
+    from backend.groq_service import generate_chat_reply
+except ImportError:
+    from models import (
+        ChatRequest, ChatResponse,
+        WaitlistCreate, WaitlistEntry,
+        NewsletterCreate, NewsletterSubscriber,
+        NewsArticleCreate, NewsArticle
+    )
+    from db import db
+    from groq_service import generate_chat_reply
 
 load_dotenv()
 

@@ -4,7 +4,10 @@ import re
 import time
 from datetime import datetime
 from typing import List, Optional, Dict, Any, Tuple
-from backend.models import WaitlistEntry, NewsletterSubscriber, NewsArticle, NewsArticleCreate
+try:
+    from backend.models import WaitlistEntry, NewsletterSubscriber, NewsArticle, NewsArticleCreate
+except ImportError:
+    from models import WaitlistEntry, NewsletterSubscriber, NewsArticle, NewsArticleCreate
 
 DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data"))
 DB_FILE = os.path.join(DATA_DIR, "database.json")

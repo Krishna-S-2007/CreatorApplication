@@ -1,7 +1,10 @@
 import os
 from typing import List
 from dotenv import load_dotenv
-from backend.models import ChatMessage
+try:
+    from backend.models import ChatMessage
+except ImportError:
+    from models import ChatMessage
 
 load_dotenv()
 
