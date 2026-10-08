@@ -8,6 +8,7 @@ import {
   deleteNewsletterSubscriber,
   fetchNewsArticles,
   deleteNewsArticle,
+  adminLogin,
   type BackendStats,
   type HealthStatus,
   type WaitlistApplicant,
@@ -16,6 +17,14 @@ import {
 } from "../lib/api"
 
 export default function Admin() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+    return sessionStorage.getItem("wb_admin_auth") === "true"
+  })
+  const [loginUser, setLoginUser] = useState("")
+  const [loginPass, setLoginPass] = useState("")
+  const [loginError, setLoginError] = useState("")
+  const [loggingIn, setLoggingIn] = useState(false)
+
   const [stats, setStats] = useState<BackendStats | null>(null)
   const [health, setHealth] = useState<HealthStatus | null>(null)
   const [waitlist, setWaitlist] = useState<WaitlistApplicant[]>([])
@@ -43,8 +52,25 @@ export default function Admin() {
   }
 
   useEffect(() => {
-    loadData()
-  }, [])
+    if (isAuthenticated) {
+      loadData()
+    }
+  }, [isAuthenticated])
+
+  async function handleLoginSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setLoginError("")
+    setLoggingIn(true)
+    const ok = await adminLogin(loginUser.trim(), loginPass)
+    setLoggingIn(false)
+    if (ok) {
+      sessionStorage.setItem("wb_admin_auth", "true")
+      setIsAuthenticated(true)
+      setLoginPass("")
+    } else {
+      setLoginError("Invalid username or password. Access denied.")
+    }
+  }
 
   function showNotice(msg: string) {
     setActionMsg(msg)
@@ -76,6 +102,74 @@ export default function Admin() {
       setArticles((prev) => prev.filter((item) => item.id !== id))
       showNotice(`Deleted article "${title}".`)
     }
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="mx-auto max-w-md px-6 py-24">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-card p-8 shadow-2xl">
+          <div className="absolute -top-12 -right-12 h-36 w-36 rounded-full bg-lime/10 blur-3xl pointer-events-none" />
+
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-lime">
+            <span className="h-2 w-2 rounded-full bg-lime animate-pulse" />
+            <span>Restricted Access</span>
+          </div>
+
+          <h1 className="font-display mt-3 text-2xl font-black uppercase tracking-tight text-white sm:text-3xl">
+            Admin <span className="text-lime">Gate</span>
+          </h1>
+          <p className="mt-2 text-xs text-white/60">
+            Please enter your squad credentials to access the Wheaty Bisks control center.
+          </p>
+
+          <form onSubmit={handleLoginSubmit} className="mt-6 space-y-4">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-white/70 mb-1.5 font-mono">
+                Username
+              </label>
+              <input
+                type="text"
+                autoComplete="username"
+                value={loginUser}
+                onChange={(e) => setLoginUser(e.target.value)}
+                placeholder="wheatybisksgaming"
+                className="w-full rounded-xl border border-white/15 bg-ink-deep px-4 py-3 text-sm text-white placeholder-white/30 focus:border-lime focus:outline-none focus:ring-1 focus:ring-lime"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-white/70 mb-1.5 font-mono">
+                Password
+              </label>
+              <input
+                type="password"
+                autoComplete="current-password"
+                value={loginPass}
+                onChange={(e) => setLoginPass(e.target.value)}
+                placeholder="••••••••"
+                className="w-full rounded-xl border border-white/15 bg-ink-deep px-4 py-3 text-sm text-white placeholder-white/30 focus:border-lime focus:outline-none focus:ring-1 focus:ring-lime"
+                required
+              />
+            </div>
+
+            {loginError && (
+              <div className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-xs font-medium text-red-400">
+                {loginError}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={loggingIn}
+              className="mt-2 w-full rounded-xl bg-lime py-3.5 text-xs font-black uppercase tracking-widest text-ink transition hover:bg-lime/90 disabled:opacity-50 cursor-pointer shadow-lg shadow-lime/20 font-mono"
+            >
+              {loggingIn ? "Verifying..." : "Unlock Dashboard"}
+            </button>
+          </form>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -110,6 +204,15 @@ export default function Admin() {
           >
             Swagger API &rarr;
           </a>
+          <button
+            onClick={() => {
+              sessionStorage.removeItem("wb_admin_auth")
+              setIsAuthenticated(false)
+            }}
+            className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-red-400 transition hover:bg-red-500 hover:text-white cursor-pointer"
+          >
+            Lock Console
+          </button>
         </div>
       </div>
 

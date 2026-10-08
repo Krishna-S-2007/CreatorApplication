@@ -1,8 +1,11 @@
 import os
+import secrets
 from typing import Optional
-from fastapi import FastAPI, HTTPException, Query, status
+from fastapi import FastAPI, HTTPException, Query, status, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from pydantic import BaseModel
 from dotenv import load_dotenv
 
 try:
@@ -41,7 +44,23 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Health & Stats ---
+# --- Health, Stats & Keep-Alive Ping ---
+@app.get("/api/ping")
+@app.get("/ping")
+@app.get("/api/cron")
+async def ping_keepalive():
+    """
+    Lightweight keep-alive heartbeat for external cron triggers (e.g. cron-job.org, GitHub Actions).
+    Prevents Render free tier instances from sleeping after 15 minutes of inactivity.
+    Performs zero heavy database or AI computations, returning a 200 OK instantly.
+    """
+    return {
+        "status": "ok",
+        "message": "pong",
+        "service": "wheatybisks-gaming-backend",
+        "uptime": "active"
+    }
+
 @app.get("/api/health")
 async def health_check():
     return {
@@ -168,9 +187,40 @@ async def delete_news_article(article_id: str):
         raise HTTPException(status_code=404, detail="Article not found.")
     return {"status": "ok", "message": "Article deleted."}
 
-# --- Interactive Web Admin Dashboard ---
+# --- Interactive Web Admin Dashboard & Security ---
+security = HTTPBasic()
+
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "wheatybisksgaming")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "RealRyan")
+
+class AdminLoginRequest(BaseModel):
+    username: str
+    password: str
+
+def verify_admin_credentials(credentials: HTTPBasicCredentials = Depends(security)):
+    is_user_ok = secrets.compare_digest(credentials.username, ADMIN_USERNAME)
+    is_pass_ok = secrets.compare_digest(credentials.password, ADMIN_PASSWORD)
+    if not (is_user_ok and is_pass_ok):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Basic"},
+        )
+    return credentials.username
+
+@app.post("/api/admin/login")
+async def admin_login(payload: AdminLoginRequest):
+    is_user_ok = secrets.compare_digest(payload.username, ADMIN_USERNAME)
+    is_pass_ok = secrets.compare_digest(payload.password, ADMIN_PASSWORD)
+    if not (is_user_ok and is_pass_ok):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid username or password"
+        )
+    return {"status": "ok", "authenticated": True, "user": ADMIN_USERNAME}
+
 @app.get("/admin", response_class=HTMLResponse)
-async def admin_dashboard():
+async def admin_dashboard(admin_user: str = Depends(verify_admin_credentials)):
     stats = db.get_stats()
     waitlist = db.get_waitlist()
     newsletter = db.get_newsletter()
