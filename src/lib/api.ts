@@ -27,14 +27,22 @@ export interface BackendStats {
   recentChatsCount: number
 }
 
-const API_BASE = import.meta.env.VITE_API_BASE || ""
-const CHAT_ENDPOINT = import.meta.env.VITE_CHAT_ENDPOINT || "/api/chat"
+const rawApiBase = (import.meta.env.VITE_API_BASE || "").trim()
+// Strip trailing slashes; if set to just "/" treat as empty relative base ""
+export const API_BASE = rawApiBase === "/" ? "" : rawApiBase.replace(/\/+$/, "")
+const rawChatEndpoint = (import.meta.env.VITE_CHAT_ENDPOINT || "/api/chat").trim()
+export const CHAT_ENDPOINT = "/" + rawChatEndpoint.replace(/^\/+/, "")
+
+export function apiUrl(path: string): string {
+  const cleanPath = "/" + path.replace(/^\/+/, "")
+  return API_BASE ? `${API_BASE}${cleanPath}` : cleanPath
+}
 
 // The AI Chat backend is connected via our Express/Groq server
 export const chatConnected = true
 
 export async function sendChat(messages: ChatMessage[], signal?: AbortSignal): Promise<string> {
-  const endpoint = `${API_BASE}${CHAT_ENDPOINT}`
+  const endpoint = apiUrl(CHAT_ENDPOINT)
   const response = await fetch(endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -56,7 +64,7 @@ export async function sendChat(messages: ChatMessage[], signal?: AbortSignal): P
 
 export async function subscribeNewsletter(d: { email: string; firstName?: string; favouriteClub?: string }): Promise<ApiResult> {
   try {
-    const res = await fetch(`${API_BASE}/api/newsletter`, {
+    const res = await fetch(apiUrl("/api/newsletter"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -77,7 +85,7 @@ export async function subscribeNewsletter(d: { email: string; firstName?: string
 
 export async function joinWaitlist(d: { name: string; email: string; interests: string[] }): Promise<ApiResult> {
   try {
-    const res = await fetch(`${API_BASE}/api/waitlist`, {
+    const res = await fetch(apiUrl("/api/waitlist"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -102,7 +110,7 @@ export async function fetchNewsArticles(category?: string, query?: string): Prom
     if (category) params.set("category", category)
     if (query) params.set("q", query)
 
-    const url = `${API_BASE}/api/news${params.toString() ? `?${params.toString()}` : ""}`
+    const url = apiUrl(`/api/news${params.toString() ? `?${params.toString()}` : ""}`)
     const res = await fetch(url)
     if (!res.ok) throw new Error("Failed to fetch news articles")
     const data = await res.json()
@@ -123,7 +131,7 @@ export async function createNewsArticle(article: {
   readTime: string
 }): Promise<NewsArticle | null> {
   try {
-    const res = await fetch(`${API_BASE}/api/news`, {
+    const res = await fetch(apiUrl("/api/news"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(article),
@@ -139,7 +147,7 @@ export async function createNewsArticle(article: {
 
 export async function fetchBackendStats(): Promise<BackendStats | null> {
   try {
-    const res = await fetch(`${API_BASE}/api/stats`)
+    const res = await fetch(apiUrl("/api/stats"))
     if (!res.ok) return null
     const data = await res.json()
     return data.stats
@@ -173,7 +181,7 @@ export interface HealthStatus {
 
 export async function fetchHealth(): Promise<HealthStatus | null> {
   try {
-    const res = await fetch(`${API_BASE}/api/health`)
+    const res = await fetch(apiUrl("/api/health"))
     if (!res.ok) return null
     return await res.json()
   } catch {
@@ -183,7 +191,7 @@ export async function fetchHealth(): Promise<HealthStatus | null> {
 
 export async function fetchWaitlist(): Promise<WaitlistApplicant[]> {
   try {
-    const res = await fetch(`${API_BASE}/api/waitlist`)
+    const res = await fetch(apiUrl("/api/waitlist"))
     if (!res.ok) return []
     const data = await res.json()
     return data.waitlist || []
@@ -194,7 +202,7 @@ export async function fetchWaitlist(): Promise<WaitlistApplicant[]> {
 
 export async function deleteWaitlistApplicant(id: string): Promise<boolean> {
   try {
-    const res = await fetch(`${API_BASE}/api/waitlist/${id}`, { method: "DELETE" })
+    const res = await fetch(apiUrl(`/api/waitlist/${id}`), { method: "DELETE" })
     return res.ok
   } catch {
     return false
@@ -203,7 +211,7 @@ export async function deleteWaitlistApplicant(id: string): Promise<boolean> {
 
 export async function fetchNewsletterSubscribers(): Promise<NewsletterSubscriberItem[]> {
   try {
-    const res = await fetch(`${API_BASE}/api/newsletter`)
+    const res = await fetch(apiUrl("/api/newsletter"))
     if (!res.ok) return []
     const data = await res.json()
     return data.subscribers || []
@@ -214,7 +222,7 @@ export async function fetchNewsletterSubscribers(): Promise<NewsletterSubscriber
 
 export async function deleteNewsletterSubscriber(id: string): Promise<boolean> {
   try {
-    const res = await fetch(`${API_BASE}/api/newsletter/${id}`, { method: "DELETE" })
+    const res = await fetch(apiUrl(`/api/newsletter/${id}`), { method: "DELETE" })
     return res.ok
   } catch {
     return false
@@ -223,7 +231,7 @@ export async function deleteNewsletterSubscriber(id: string): Promise<boolean> {
 
 export async function deleteNewsArticle(id: string): Promise<boolean> {
   try {
-    const res = await fetch(`${API_BASE}/api/news/${id}`, { method: "DELETE" })
+    const res = await fetch(apiUrl(`/api/news/${id}`), { method: "DELETE" })
     return res.ok
   } catch {
     return false
@@ -232,7 +240,7 @@ export async function deleteNewsArticle(id: string): Promise<boolean> {
 
 export async function adminLogin(username: string, password: string): Promise<boolean> {
   try {
-    const res = await fetch(`${API_BASE}/api/admin/login`, {
+    const res = await fetch(apiUrl("/api/admin/login"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),

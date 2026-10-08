@@ -1,10 +1,12 @@
 import os
+import re
 import secrets
 from typing import Optional
 from fastapi import FastAPI, HTTPException, Query, status, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from starlette.types import ASGIApp, Receive, Scope, Send
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
@@ -44,6 +46,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Normalize duplicate slashes in URL paths (e.g., //api/chat -> /api/chat)
+class NormalizePathMiddleware:
+    def __init__(self, app: ASGIApp):
+        self.app = app
+
+    async def __call__(self, scope: Scope, receive: Receive, send: Send):
+        if scope["type"] == "http" and "//" in scope.get("path", ""):
+            scope["path"] = re.sub(r"/+", "/", scope["path"])
+        await self.app(scope, receive, send)
+
+app.add_middleware(NormalizePathMiddleware)
+
 # --- Health, Stats & Keep-Alive Ping ---
 @app.get("/api/ping")
 @app.get("/ping")
@@ -80,6 +94,7 @@ async def get_stats():
 
 # --- AI Chatbot Route (Groq API) ---
 @app.post("/api/chat", response_model=ChatResponse)
+@app.post("//api/chat", response_model=ChatResponse)
 async def chat_endpoint(payload: ChatRequest):
     if not payload.messages:
         raise HTTPException(status_code=400, detail="Missing messages list.")
