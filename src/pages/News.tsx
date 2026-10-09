@@ -1,6 +1,5 @@
-import { useEffect, useState, type FormEvent } from "react"
-import { fetchNewsArticles, createNewsArticle, type NewsArticle } from "../lib/api"
-import { crew } from "../data/content"
+import { useEffect, useState } from "react"
+import { fetchNewsArticles, type NewsArticle } from "../lib/api"
 
 const categories = ["All", "Match Report", "Squad News", "Art & Community", "Podcast", "Tournament"] as const
 
@@ -65,16 +64,6 @@ export default function News() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
   const [searchQuery, setSearchQuery] = useState("")
   const [activeArticle, setActiveArticle] = useState<NewsArticle | null>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  // Form state for creating a new article
-  const [title, setTitle] = useState("")
-  const [summary, setSummary] = useState("")
-  const [content, setContent] = useState("")
-  const [author, setAuthor] = useState("Ryan")
-  const [category, setCategory] = useState<NewsArticle["category"]>("Match Report")
-  const [submitting, setSubmitting] = useState(false)
-  const [formError, setFormError] = useState("")
 
   const loadArticles = async () => {
     setLoading(true)
@@ -87,40 +76,6 @@ export default function News() {
   useEffect(() => {
     loadArticles()
   }, [selectedCategory, searchQuery])
-
-  const handleCreate = async (e: FormEvent) => {
-    e.preventDefault()
-    if (!title.trim() || !content.trim()) {
-      setFormError("Title and content are required.")
-      return
-    }
-
-    setSubmitting(true)
-    setFormError("")
-    const profile = PLAYER_PROFILES[author]
-    const authorHandle = profile ? `${profile.gamertag}` : "@wheatybisksgaming"
-
-    const created = await createNewsArticle({
-      title,
-      summary: summary.trim() || title.trim(),
-      content,
-      author,
-      authorHandle,
-      category,
-      readTime: "5 min read",
-    })
-
-    if (created) {
-      setTitle("")
-      setSummary("")
-      setContent("")
-      setIsModalOpen(false)
-      await loadArticles()
-    } else {
-      setFormError("Failed to save article. Check backend connection.")
-    }
-    setSubmitting(false)
-  }
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-10">
@@ -139,12 +94,6 @@ export default function News() {
           </p>
           <div className="mt-6 h-1.5 w-20 bg-lime" />
         </div>
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="btn-slant bg-lime px-8 py-4 text-xs font-bold uppercase text-ink transition hover:bg-white shrink-0"
-        >
-          + Publish Guide / Intel
-        </button>
       </div>
 
       {/* Filter and Search Bar */}
@@ -230,7 +179,7 @@ export default function News() {
 
                   <button
                     onClick={() => setActiveArticle(art)}
-                    className="w-full text-center rounded bg-lime px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-ink transition hover:bg-white"
+                    className="w-full text-center rounded bg-lime px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-ink transition hover:bg-white cursor-pointer"
                   >
                     Read Guide & Breakdown &rarr;
                   </button>
@@ -250,169 +199,58 @@ export default function News() {
                 <span className="text-xs uppercase tracking-widest text-lime bg-lime/10 px-2.5 py-1 rounded border border-lime/30">
                   {activeArticle.category}
                 </span>
-                <span className="text-xs text-white/40">{activeArticle.readTime}</span>
+                <span className="text-xs text-white/50">{activeArticle.readTime}</span>
               </div>
               <button
                 onClick={() => setActiveArticle(null)}
-                className="text-2xl text-white/60 hover:text-lime"
-                aria-label="Close article"
+                className="text-2xl text-white/60 hover:text-lime cursor-pointer"
               >
                 &times;
               </button>
             </div>
 
-            <h2 className="font-display mt-6 text-2xl font-black uppercase text-white sm:text-3xl leading-tight">
+            <h1 className="font-display mt-6 text-2xl font-black uppercase text-white sm:text-3xl leading-snug">
               {activeArticle.title}
-            </h2>
+            </h1>
 
-            {/* Author & Gamertag Header Banner */}
-            <div className="mt-4 flex flex-wrap items-center gap-4 rounded-xl border border-white/15 bg-white/5 p-4 text-xs">
+            {/* Author Credit & Player Tag */}
+            <div className="mt-4 flex flex-wrap items-center gap-4 rounded-xl bg-white/5 p-4 border border-white/10 text-xs">
+              <div className="h-10 w-10 rounded-full bg-lime/20 border border-lime/40 flex items-center justify-center font-display font-black text-lime">
+                {activeArticle.author.slice(0, 2).toUpperCase()}
+              </div>
               <div>
-                <span className="text-[10px] uppercase tracking-widest text-white/50 block">Author</span>
-                <strong className="text-white text-sm">{activeArticle.author}</strong>
-              </div>
-              <div className="border-l border-white/15 pl-4">
-                <span className="text-[10px] uppercase tracking-widest text-white/50 block">In-Game Gamertag</span>
-                <strong className="text-lime text-sm font-mono">
-                  {PLAYER_PROFILES[activeArticle.author]?.gamertag || activeArticle.authorHandle}
-                </strong>
-              </div>
-              <div className="border-l border-white/15 pl-4 hidden sm:block">
-                <span className="text-[10px] uppercase tracking-widest text-white/50 block">Published</span>
-                <span className="text-white/80">{new Date(activeArticle.publishedAt).toLocaleDateString()}</span>
+                <div className="font-bold text-white">
+                  {activeArticle.author}{" "}
+                  <span className="font-mono text-lime font-normal">
+                    ({activeArticle.authorHandle})
+                  </span>
+                </div>
+                <div className="text-[10px] text-white/50">
+                  Published: {activeArticle.publishedAt} • Wheaty Bisks Gaming Squad
+                </div>
               </div>
             </div>
 
-            {/* Summary Box */}
-            <div className="mt-6 rounded-lg border-l-4 border-lime bg-white/5 p-4 text-xs italic leading-relaxed text-white/90">
-              <strong>Executive Summary:</strong> {activeArticle.summary}
-            </div>
+            {/* Summary Lead Callout */}
+            {activeArticle.summary && (
+              <div className="my-6 rounded-xl border border-lime/30 bg-lime/5 p-4 text-xs font-medium text-white/90 leading-relaxed">
+                <strong>Executive Takeaway:</strong> {activeArticle.summary}
+              </div>
+            )}
 
-            {/* Formatted Article Content */}
-            <div className="mt-6 border-t border-white/10 pt-4">
+            {/* Formatted Guide Body */}
+            <div className="border-t border-white/10 pt-4">
               {renderFormattedContent(activeArticle.content)}
             </div>
 
-            <div className="mt-8 border-t border-white/10 pt-4 flex items-center justify-between">
-              <span className="text-[10px] text-white/50 uppercase tracking-widest">
-                Wheaty Bisks Gaming Official Guide
-              </span>
+            <div className="mt-8 flex justify-end border-t border-white/10 pt-4">
               <button
                 onClick={() => setActiveArticle(null)}
-                className="btn-slant bg-lime px-8 py-2.5 text-xs font-bold uppercase text-ink hover:bg-white"
+                className="btn-slant bg-lime px-8 py-2.5 text-xs font-bold uppercase text-ink hover:bg-white cursor-pointer"
               >
                 Done Reading
               </button>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* Publish Article Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md">
-          <div className="glass max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-3xl border border-lime/40 bg-ink-deep p-8 shadow-[0_25px_90px_#000]">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <h2 className="font-display text-lg font-black uppercase text-lime">Publish Game Guide & Strategy</h2>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="text-2xl text-white/60 hover:text-lime"
-              >
-                &times;
-              </button>
-            </div>
-
-            {formError && <p className="mt-4 text-xs text-red-400">{formError}</p>}
-
-            <form onSubmit={handleCreate} className="mt-6 space-y-5 text-xs">
-              <div>
-                <label className="block uppercase tracking-wider text-white/60 mb-1">Headline / Guide Title *</label>
-                <input
-                  type="text"
-                  required
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g. Rocket League 2v2 Fast Aerial & Rotation Guide"
-                  className="w-full rounded-lg border border-white/20 bg-white/5 p-3 text-white outline-none focus:border-lime"
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block uppercase tracking-wider text-white/60 mb-1">Player & Gamertag</label>
-                  <select
-                    value={author}
-                    onChange={(e) => setAuthor(e.target.value)}
-                    className="w-full rounded-lg border border-white/20 bg-ink p-3 text-white outline-none focus:border-lime"
-                  >
-                    {crew.map((c) => {
-                      const profile = PLAYER_PROFILES[c.name]
-                      const tag = profile ? profile.gamertag : c.handle
-                      return (
-                        <option key={c.name} value={c.name}>
-                          {c.name} ({tag})
-                        </option>
-                      )
-                    })}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block uppercase tracking-wider text-white/60 mb-1">Category</label>
-                  <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value as NewsArticle["category"])}
-                    className="w-full rounded-lg border border-white/20 bg-ink p-3 text-white outline-none focus:border-lime"
-                  >
-                    <option value="Match Report">Match Report (Meta Analysis)</option>
-                    <option value="Tournament">Tournament (Esports Guide)</option>
-                    <option value="Squad News">Squad News (Patch Updates)</option>
-                    <option value="Art & Community">Art & Community (Studio Setup)</option>
-                    <option value="Podcast">Podcast (Competitive Breakdown)</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block uppercase tracking-wider text-white/60 mb-1">Executive Summary</label>
-                <input
-                  type="text"
-                  value={summary}
-                  onChange={(e) => setSummary(e.target.value)}
-                  placeholder="Two-sentence value takeaway for players..."
-                  className="w-full rounded-lg border border-white/20 bg-white/5 p-3 text-white outline-none focus:border-lime"
-                />
-              </div>
-
-              <div>
-                <label className="block uppercase tracking-wider text-white/60 mb-1">Guide Content & Squad Examples *</label>
-                <textarea
-                  rows={8}
-                  required
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  placeholder="Write actionable advice, patch notes, ability numbers, and weave in your squad case study..."
-                  className="w-full rounded-lg border border-white/20 bg-white/5 p-3 text-white outline-none focus:border-lime"
-                />
-              </div>
-
-              <div className="flex justify-end gap-3 pt-3">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="rounded-lg border border-white/20 px-6 py-2.5 font-bold uppercase text-white/70 hover:border-white"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="btn-slant bg-lime px-8 py-2.5 font-bold uppercase text-ink hover:bg-white disabled:opacity-50"
-                >
-                  {submitting ? "Publishing..." : "Publish Commercial Guide"}
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       )}

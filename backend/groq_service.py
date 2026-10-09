@@ -53,10 +53,23 @@ INSTRUCTIONS FOR REPLIES:
 - Keep answers engaging, concise to medium length (2-4 paragraphs max), and clear.
 - Never invent harmful or private personal details."""
 
+def normalize_groq_model(model_name: str) -> str:
+    m = (model_name or "").strip()
+    if m in ("qwen3.8-27b", "qwen-3.8-27b", "qwen3.8", "qwen"):
+        return "qwen/qwen3.8-27b"
+    if m in ("gpt-oss-120b", "openai-gpt-oss-120b"):
+        return "openai/gpt-oss-120b"
+    if m in ("gpt-oss-20b", "openai-gpt-oss-20b"):
+        return "openai/gpt-oss-20b"
+    if not m:
+        return "qwen/qwen3.8-27b"
+    return m
+
 async def generate_chat_reply(messages: List[ChatMessage]) -> str:
     load_dotenv(override=True)
     api_key = os.getenv("GROQ_API_KEY", "").strip()
-    model = os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b").strip()
+    raw_model = os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b").strip()
+    primary_model = normalize_groq_model(raw_model)
 
     # 1. If Groq API Key is present, call Groq Cloud via Python SDK
     if api_key:
@@ -67,7 +80,8 @@ async def generate_chat_reply(messages: List[ChatMessage]) -> str:
             for m in messages:
                 formatted_messages.append({"role": m.role, "content": m.content})
 
-            candidate_models = [model, "qwen/qwen3.8-27b", "openai/gpt-oss-120b", "openai/gpt-oss-20b"]
+            # Verified operational Groq chat models
+            candidate_models = [primary_model, "qwen/qwen3.8-27b", "openai/gpt-oss-120b", "openai/gpt-oss-20b"]
             seen = set()
             models_to_try = [m for m in candidate_models if m and not (m in seen or seen.add(m))]
 
@@ -83,7 +97,7 @@ async def generate_chat_reply(messages: List[ChatMessage]) -> str:
                     if reply and reply.strip():
                         return reply.strip()
                 except Exception as model_err:
-                    print(f"[Groq Service] Model {candidate} failed: {model_err}")
+                    print(f"[Groq Service] Notice: Candidate model {candidate} unavailable. Trying next model: {model_err}")
                     continue
         except Exception as e:
             print(f"[Groq Service] API client error, falling back to local engine: {e}")

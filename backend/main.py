@@ -77,11 +77,13 @@ async def ping_keepalive():
 
 @app.get("/api/health")
 async def health_check():
+    raw_m = os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b").strip()
+    norm_m = "qwen/qwen3.8-27b" if raw_m in ("qwen3.8-27b", "qwen-3.8-27b", "qwen3.8", "") else raw_m
     return {
         "status": "ok",
         "channel": "@wheatybisksgaming",
         "groqConfigured": bool(os.getenv("GROQ_API_KEY", "").strip()),
-        "groqModel": os.getenv("GROQ_MODEL", "qwen/qwen3.8-27b"),
+        "groqModel": norm_m,
     }
 
 @app.get("/api/stats")
